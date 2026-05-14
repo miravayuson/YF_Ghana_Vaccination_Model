@@ -221,7 +221,7 @@ run_model_one_district <- function(df) {
 ## Run model for all districts
 
 ```{r allmodel}
-raw <- read.csv("optimistic1970.csv")
+raw <- read.csv("../data/optimistic1970.csv")
 
 results <- raw %>%
   group_by(district) %>%
@@ -236,7 +236,7 @@ This command produces the "coverage_by_district_year1970.csv" file, which contai
 ```{r coveragestock}
 results %>%
   select(district, year, Coverage_stock) %>%
-  write.csv("coverage_by_district_year_opt1970.csv", row.names = FALSE)
+  write.csv("../data/coverage_by_district_year_opt1970.csv", row.names = FALSE)
 ```
 
 ## Organize data sets for mapping
@@ -244,10 +244,10 @@ results %>%
 ```{r mapprep}
 
 #Shapefile (.dbf and .shx files should be in same folder)
-districts_sf <- st_read("261_Districts.shp", quiet = FALSE)
+districts_sf <- st_read("../data/261_Districts.shp", quiet = FALSE)
 
 #Coverage data
-cov <- read_csv("coverage_by_district_year_opt1970.csv",
+cov <- read_csv("../data/coverage_by_district_year_opt1970.csv",
                 col_types = cols(
                   district = col_character(),
                   year = col_integer(),
@@ -355,8 +355,10 @@ p <- ggplot(map_data) +
 
 p
 print(p)
-ggsave("ghana_coverage_facets_1970_2025opt.png", p, width = 16, height = 10, dpi = 300)
+ggsave("../figures/ghana_coverage_facets_1970_2025opt.png", p, width = 16, height = 10, dpi = 300)
 ```
+
+## This map is the same, but in portrait and landscape mode.
 
 ```{r}
 p <- ggplot(map_data) +
@@ -409,7 +411,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_1970_2025opt_portrait.png",
+  "../figures/ghana_coverage_facets_1970_2025opt_portrait.png",
   p,
   width = 14,   
   height = 24,  
@@ -467,7 +469,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_1970_2025opt_landscape.png",
+  "../figures/ghana_coverage_facets_1970_2025opt_landscape.png",
   p,
   width = 24,   
   height = 14,  
@@ -660,7 +662,7 @@ run_model_one_district <- function(df) {
 ```
 
 ```{r}
-raw <- read.csv("conservative1970.csv")
+raw <- read.csv("../data/conservative1970.csv")
 
 results <- raw %>%
   group_by(district) %>%
@@ -672,16 +674,16 @@ results <- raw %>%
 ```{r}
 results %>%
   select(district, year, Coverage_stock) %>%
-  write.csv("coverage_by_district_year_con1970.csv", row.names = FALSE)
+  write.csv("../data/coverage_by_district_year_con1970.csv", row.names = FALSE)
 ```
 
 ```{r}
 
 #Shapefile (.dbf and .shx files should be in same folder)
-districts_sf <- st_read("261_Districts.shp", quiet = FALSE)
+districts_sf <- st_read("../data/261_Districts.shp", quiet = FALSE)
 
 #Coverage data
-cov <- read_csv("coverage_by_district_year_con1970.csv",
+cov <- read_csv("../data/coverage_by_district_year_con1970.csv",
                 col_types = cols(
                   district = col_character(),
                   year = col_integer(),
@@ -793,7 +795,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_1970_2025con_portrait.png",
+  "../figures/ghana_coverage_facets_1970_2025con_portrait.png",
   p,
   width = 14,   
   height = 24,  
@@ -852,7 +854,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_1970_2025con_landscape.png",
+  "../figures/ghana_coverage_facets_1970_2025con_landscape.png",
   p,
   width = 24,   
   height = 14,  
@@ -1045,7 +1047,7 @@ run_model_one_district <- function(df) {
 ```
 
 ```{r}
-raw <- read.csv("untargeted1970.csv")
+raw <- read.csv("../data/untargeted1970.csv")
 
 results <- raw %>%
   group_by(district) %>%
@@ -1056,16 +1058,16 @@ results <- raw %>%
 ```{r}
 results %>%
   select(district, year, Coverage_stock) %>%
-  write.csv("coverage_by_district_year_un1970.csv", row.names = FALSE)
+  write.csv("../data/coverage_by_district_year_un1970.csv", row.names = FALSE)
 ```
 
 ```{r}
 
 #Shapefile (.dbf and .shx files should be in same folder)
-districts_sf <- st_read("261_Districts.shp", quiet = FALSE)
+districts_sf <- st_read("../data/261_Districts.shp", quiet = FALSE)
 
 #Coverage data
-cov <- read_csv("coverage_by_district_year_un1970.csv",
+cov <- read_csv("../data/coverage_by_district_year_un1970.csv",
                 col_types = cols(
                   district = col_character(),
                   year = col_integer(),
@@ -1177,7 +1179,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_1970_2025un_portrait.png",
+  "../figures/ghana_coverage_facets_1970_2025un_portrait.png",
   p,
   width = 14,   
   height = 24,  
@@ -1236,7 +1238,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_1970_2025un_landscape.png",
+  "../figures/ghana_coverage_facets_1970_2025un_landscape.png",
   p,
   width = 24,   
   height = 14,  
@@ -1431,7 +1433,7 @@ run_model_one_district <- function(df) {
 ## Run model for all districts
 
 ```{r}
-raw <- read.csv("optimistic1970_supplementary2011.csv")
+raw <- read.csv("../data/optimistic1970_supplementary2011.csv")
 
 results <- raw %>%
   group_by(district) %>%
@@ -1444,7 +1446,7 @@ results <- raw %>%
 ```{r}
 results %>%
   select(district, year, Coverage_stock) %>%
-  write.csv("coverage_by_district_year_opt1970_s2011.csv", row.names = FALSE)
+  write.csv("../data/coverage_by_district_year_opt1970_s2011.csv", row.names = FALSE)
 ```
 
 ## Organize data sets for mapping
@@ -1452,10 +1454,10 @@ results %>%
 ```{r}
 
 #Shapefile (.dbf and .shx files should be in same folder)
-districts_sf <- st_read("261_Districts.shp", quiet = FALSE)
+districts_sf <- st_read("../data/261_Districts.shp", quiet = FALSE)
 
 #Coverage data
-cov <- read_csv("coverage_by_district_year_opt1970_s2011.csv",
+cov <- read_csv("../data/coverage_by_district_year_opt1970_s2011.csv",
                 col_types = cols(
                   district = col_character(),
                   year = col_integer(),
@@ -1566,7 +1568,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_1970_2025_2011s_portrait.png",
+  "../figures/ghana_coverage_facets_1970_2025_2011s_portrait.png",
   p,
   width = 14,   
   height = 24,  
@@ -1625,7 +1627,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_1970_2025_2011s_landscape.png",
+  "../figures/ghana_coverage_facets_1970_2025_2011s_landscape.png",
   p,
   width = 24,   
   height = 14,  
@@ -1633,7 +1635,7 @@ ggsave(
 )
 ```
 
-##This code is for producing a 2005-2025 map only.
+##This code is for producing a 2005-2025 map only (using baseline coverage from 2000).
 
 ```{r}
 run_model_one_district <- function(df) {
@@ -1820,7 +1822,7 @@ run_model_one_district <- function(df) {
 ## Run model for all districts
 
 ```{r}
-raw <- read.csv("optimistic1970.csv")
+raw <- read.csv("../data/optimistic1970.csv")
 
 results <- raw %>%
   group_by(district) %>%
@@ -1835,18 +1837,18 @@ This command produces the "coverage_by_district_year1970.csv" file, which contai
 ```{r}
 results %>%
   select(district, year, Coverage_stock) %>%
-  write.csv("coverage_by_district_year_opt2000.csv", row.names = FALSE)
+  write.csv("../data/coverage_by_district_year_opt2000.csv", row.names = FALSE)
 ```
 
-## Organize data sets for mapping
+## Organize data sets for mapping 2005 - 2025 data only
 
 ```{r}
 
 #Shapefile (.dbf and .shx files should be in same folder)
-districts_sf <- st_read("261_Districts.shp", quiet = FALSE)
+districts_sf <- st_read("../data/261_Districts.shp", quiet = FALSE)
 
 #Coverage data
-cov <- read_csv("coverage_by_district_year_opt2000.csv",
+cov <- read_csv("../data/coverage_by_district_year_opt2000.csv",
                 col_types = cols(
                   district = col_character(),
                   year = col_integer(),
@@ -1957,7 +1959,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_2005_2025opt_portrait.png",
+  "../figures/ghana_coverage_facets_2005_2025opt_portrait.png",
   p,
   width = 14,   
   height = 24,  
@@ -2016,7 +2018,7 @@ p <- ggplot(map_data) +
 p
 print(p)
 ggsave(
-  "ghana_coverage_facets_2005_2025opt_landscape.png",
+  "../figures/ghana_coverage_facets_2005_2025opt_landscape.png",
   p,
   width = 24,   
   height = 14,  
